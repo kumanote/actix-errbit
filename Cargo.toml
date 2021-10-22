@@ -1,0 +1,39 @@
+[package]
+name = "actix-errbit"
+version = "0.1.0-beta"
+authors = ["Hiroki Tanaka <support@kumano-te.com>"]
+license = "MIT"
+edition = "2018"
+description = "This crate adds a middleware for actix-web that captures errors and report them to errbit."
+repository = "https://github.com/kumanote/actix-errbit"
+readme = "README.md"
+keywords = ["errbit", "error reporting", "airbrake", "actix-web"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = { version = "1.0", features = ["backtrace"] }
+errbit = { version = "0.1.0", git = "https://github.com/kumanote/errbit-rs.git", branch = "main" }
+
+[dependencies.actix-web]
+version = "4.0.0-beta.10"
+default-features = false
+
+[dependencies.actix-service]
+version = "2.0.1"
+
+[dependencies.actix-utils]
+version = "3.0.0"
+
+[dependencies.tokio]
+version = "1.12"
+features = ["full"]
+
+[dependencies.http]
+version = "0.2"
+
+[dev-dependencies]
+dotenv = "0.15.0"
+serial_test = "0.5.1"
+actix-rt = "2.3.0"
+thiserror = "1.0"
